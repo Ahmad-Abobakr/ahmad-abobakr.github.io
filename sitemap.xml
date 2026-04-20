@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ahmad-abobakr.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-abobakr.github.io/project/payroll-advanced-system</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-abobakr.github.io/project/education-center-management-system</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ahmad-abobakr.github.io/project/clinic-manager</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
