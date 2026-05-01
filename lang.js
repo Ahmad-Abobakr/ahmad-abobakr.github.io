@@ -44,3 +44,33 @@ if (document.readyState === 'loading') {
 } else {
   initLang();
 }
+
+function openLightbox(src, alt) {
+  var lightbox = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  if (!lightbox || !img) return;
+  img.src = src;
+  img.alt = alt || '';
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  var lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function toggleMobileMenu() {
+  var nav = document.getElementById('mainNav');
+  if (nav) {
+    nav.classList.toggle('active');
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLang);
+} else {
+  initLang();
+}

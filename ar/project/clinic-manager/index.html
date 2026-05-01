@@ -705,6 +705,107 @@
         color: #e2e8f0;
         font-size: 1.5rem;
       }
+      .screenshots-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+      .screenshot-item {
+        transition: transform 0.3s ease;
+      }
+      .screenshot-item:hover {
+        transform: translateY(-5px);
+      }
+      .screenshot-decoration {
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .screenshot-decoration::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #6366f1, #a855f7);
+      }
+      .screenshot-decoration:hover {
+        border-color: var(--card-border-hover);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+      }
+      .screenshot-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        display: block;
+      }
+      @media screen and (max-width: 900px) {
+        .screenshots-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 1.5rem;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .screenshots-gallery {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .screenshot-decoration {
+          padding: 8px;
+        }
+      }
+      .lightbox-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .lightbox-overlay.active {
+        display: flex;
+      }
+      .lightbox-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+      }
+      .lightbox-image {
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+      }
+      .lightbox-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        line-height: 1;
+      }
+      .lightbox-close:hover {
+        color: #818cf8;
+      }
       .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -793,11 +894,6 @@
       .rtl-content .main-content {
         flex-direction: row-reverse;
       }
-      @media screen and (max-width: 900px) {
-        .rtl-content .main-content {
-          flex-direction: column;
-        }
-      }
       .rtl-content .tech-item {
         flex-direction: row-reverse;
       }
@@ -845,7 +941,7 @@
             <div class="logo"><h1>Ahmed Abobakr</h1><p>Software Engineer</p></div>
             <div class="header-right">
               <a id="langToggle" class="lang-toggle" href="javascript:toggleLanguage()">عربي</a>
-              <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
+              <button id="menuToggle" class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
               <nav id="mainNav" class="main-nav"><a href="/">Home</a><a href="/#projects">Projects</a><a href="/#contact">Contact</a></nav>
             </div>
           </div>
@@ -919,6 +1015,46 @@
                 </div>
               </section>
               <section class="project-section">
+                <h2>لقطات الشاشة</h2>
+                <div class="screenshots-gallery">
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot1.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot1.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot2.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot2.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot3.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot3.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot4.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot4.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot5.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot5.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot6.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot6.png"/>
+                    </div>
+                  </div>
+                  <div class="screenshot-item">
+                    <div class="screenshot-decoration">
+                      <img class="screenshot-image" data-full="/images/screenshots/clinic-manager/ClinicPro Screenshot7.png" onclick="openLightbox(this.dataset.full, &quot;ClinicPro Management System Screenshot&quot;)" alt="ClinicPro Management System Screenshot" src="/images/screenshots/clinic-manager/ClinicPro Screenshot7.png"/>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="project-section">
                 <h2>التقنيات المستخدمة</h2>
                 <div class="tech-stack">
                   <div class="tech-item"><span class="tech-name">React.js</span><span class="tech-purpose">واجهة المستخدم</span></div>
@@ -950,6 +1086,12 @@
                 <p class="support-text">للدعم أو طلبات التخصيص</p>
                 <a class="btn btn-secondary" href="/ar#contact">تواصل مع المطور</a>
               </div>
+            </div>
+          </div>
+          <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+            <div class="lightbox-content">
+              <img id="lightbox-img" class="lightbox-image" alt src/>
+              <span class="lightbox-close" onclick="closeLightbox()">×</span>
             </div>
           </div>
           <footer><div class="container"><p>© 2026 أحمد أبو بكر. جميع الحقوق محفوظة.</p></div></footer>
