@@ -57,8 +57,6 @@
         color: #e2e8f0;
         background-color: #0a0a12;
         transition: background-color 0.3s ease, color 0.3s ease;
-        overflow-x: hidden;
-        max-width: 100vw;
       }
       body[dir="rtl"] {
         direction: rtl;
@@ -616,7 +614,7 @@
       }
       .contact-info {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         gap: 1.5rem;
         margin-top: 2rem;
@@ -923,6 +921,7 @@
     <html>
       <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta id="htmlLang" name="html:lang" content="en"/>
         <meta name="description" content="Ahmed Abobakr - Software Engineer specializing in Flutter and cross-platform development"/>
         <meta name="keywords" content="Flutter, Dart, Mobile Development, Software Engineer, Portfolio"/>
